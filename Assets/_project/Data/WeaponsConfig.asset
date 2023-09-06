@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f87c26f3b02149c58d7d8951033b31de, type: 3}
+  m_Name: WeaponsConfig
+  m_EditorClassIdentifier: 
+  _weaponConfigs:
+  - _kind: 0
+    _weaponPrefab: {fileID: 4598967419133526359, guid: c119e8536eb8328429481367fbd37294, type: 3}
+    _projectilePrefab: {fileID: 1360139839168745812, guid: 184628deae90c1a4c81729d91fc04132, type: 3}
+    _reloadTime: 10
+    _rateOfFire: 0.1
+    _clipSize: 30
+  - _kind: 1
+    _weaponPrefab: {fileID: 7817923795036566900, guid: b9605a26560b6a4458dbb33e04800dc0, type: 3}
+    _projectilePrefab: {fileID: 7125031585344364684, guid: 1b720a4263b4544468fe57c65d3afa28, type: 3}
+    _reloadTime: 10
+    _rateOfFire: 0
+    _clipSize: 0
+  - _kind: 2
+    _weaponPrefab: {fileID: 6789606234438995706, guid: 8171e68c941632243a8866329ef1e85f, type: 3}
+    _projectilePrefab: {fileID: 8690572564427323772, guid: 5527c19864e1a35479f53db76a190b25, type: 3}
+    _reloadTime: 10
+    _rateOfFire: 0
+    _clipSize: 0
