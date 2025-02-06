@@ -1,0 +1,16 @@
+{
+    "name": "z.data.hold",
+    "rootNamespace": "",
+    "references": [
+        "GUID:7b961d9ef801c9e40b08df8c1336efb3"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

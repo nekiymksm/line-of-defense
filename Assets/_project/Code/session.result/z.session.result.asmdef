@@ -1,0 +1,17 @@
+{
+    "name": "z.session.result",
+    "rootNamespace": "",
+    "references": [
+        "GUID:bff3be190796d214bb64b8ed94092267",
+        "GUID:8e5c9674398d29847bebcbdb6fc65f6c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
