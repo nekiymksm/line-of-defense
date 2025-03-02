@@ -1,7 +1,11 @@
 {
     "name": "z.input",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:8e5c9674398d29847bebcbdb6fc65f6c",
+        "GUID:bff3be190796d214bb64b8ed94092267"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

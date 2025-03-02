@@ -111,12 +111,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff934062f68496f95b1456c3d90bc98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponsConfig: {fileID: 11400000, guid: 62eddf1490fb11a48a209a4cb0392f43, type: 2}
-  _pointerTransform: {fileID: 7118315886974986736}
-  _towerTransform: {fileID: 15008552917929806}
   _rotationAxisTransform: {fileID: 4277828969733126655}
-  _weaponsContainerTransform: {fileID: 3428834082621075660}
-  _rotationAngleValue: 80
+  _weaponContext: {fileID: 0}
+  _shootingPointer: {fileID: 0}
+  <DefenseArea>k__BackingField: {fileID: 0}
 --- !u!1 &4891535456574189450
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,6 +197,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -291,7 +292,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 45dced71007592c41bcdd3a43ba7644d, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: a85712b22ad692b42b5b2abc52c2e7c0, type: 2}
     m_RemovedComponents: []
@@ -361,7 +362,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: a0eda49401f4aa046b304f2b62fa4f77, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 964ea7386bb741c47893fc6f78a3e2c1, type: 2}
     m_RemovedComponents: []
@@ -431,7 +432,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: c8507fecf542c8c409e60220a3f0283a, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: a85712b22ad692b42b5b2abc52c2e7c0, type: 2}
     m_RemovedComponents: []

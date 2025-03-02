@@ -1,47 +1,75 @@
+using System;
 using System.Collections;
+using _project.Code.control.input.@base;
+using _project.Code.tower;
 using _project.Code.weapon.data.weapon.configs.Base;
 using _project.Code.weapon.projectiles.Base;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace _project.Code.weapon.weapons.Base
 {
-    public abstract class Weapon
+    public abstract class Weapon : IInputDependable
     {
-        private Transform _contextTransform;
-        private WeaponConfig _weaponConfig;
+        private WeaponConfig _config;
+        private int _index;
         private int _projectilesCounter;
         private bool _isLoaded;
-
+        
         protected WeaponContext WeaponContext;
         protected bool IsPulled;
         protected bool IsReload;
+        
+        public bool IsActive { private get; set; }
 
-        protected Weapon(WeaponContext weaponContext, WeaponConfig weaponConfig)
+        public event Action<int, float> ReloadStarted;
+
+        protected Weapon(WeaponConfig config, WeaponContext weaponContext, int weaponIndex)
         {
-            _contextTransform = weaponContext.transform;
-            _weaponConfig = weaponConfig;
+            _index = weaponIndex;
+            _config = config;
+            WeaponContext = weaponContext;
+
             _projectilesCounter = 0;
             _isLoaded = true;
-
-            WeaponContext = weaponContext;
+            
             IsPulled = false;
             IsReload = false;
+            IsActive = false;
         }
 
         public void PullTrigger()
         {
+            if (IsActive == false)
+            {
+                return;
+            }
+            
             IsPulled = true;
+            WeaponContext.SetPointer(IsPulled);
+            
             OnTriggerPull();
         }
 
-        public void HoldTrigger()
+        public void HoldTrigger(Vector2 lookValue)
         {
-            OnTriggerHold();
+            if (IsActive == false)
+            {
+                return;
+            }
+            
+            OnTriggerHold(lookValue);
         }
         
         public void ReleaseTrigger()
         {
+            if (IsActive == false)
+            {
+                return;
+            }
+            
             IsPulled = false;
+            WeaponContext.SetPointer(IsPulled);
             
             if (_isLoaded)
             {
@@ -55,12 +83,20 @@ namespace _project.Code.weapon.weapons.Base
         {
         }
         
-        protected virtual void OnTriggerHold()
+        protected virtual void OnTriggerHold(Vector2 lookValue)
         {
         }
 
         protected virtual void OnTriggerRelease()
         {
+        }
+
+        public void TryReload()
+        {
+            if (IsActive && IsReload == false)
+            {
+                WeaponContext.StartCoroutine(Reload());
+            }
         }
         
         protected void Shot()
@@ -69,18 +105,19 @@ namespace _project.Code.weapon.weapons.Base
             {
                 return;
             }
-            
+
+            var contextTransform = WeaponContext.transform;
             var projectile = Object.Instantiate(
-                _weaponConfig.ProjectilePrefab, 
-                _contextTransform.position, 
-                _contextTransform.rotation);
-            projectile.Initialize(_weaponConfig);
+                _config.ProjectilePrefab, 
+                contextTransform.position, 
+                contextTransform.rotation);
+            projectile.Initialize(_config);
 
             _projectilesCounter++;
             
             OnShot(projectile);
 
-            if (_projectilesCounter >= _weaponConfig.MagazineCapacity)
+            if (_projectilesCounter >= _config.MagazineCapacity)
             {
                 WeaponContext.StartCoroutine(Reload());
             }
@@ -92,10 +129,12 @@ namespace _project.Code.weapon.weapons.Base
 
         private IEnumerator Reload()
         {
+            ReloadStarted?.Invoke(_index, _config.ReloadTime);
+            
             _isLoaded = false;
             IsReload = true;
-            
-            yield return new WaitForSeconds(_weaponConfig.ReloadTime);
+
+            yield return new WaitForSeconds(_config.ReloadTime);
             
             _projectilesCounter = 0;
             _isLoaded = true;

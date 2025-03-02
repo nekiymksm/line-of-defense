@@ -6,11 +6,11 @@ namespace _project.Code.app.install
 {
     public class AppInstaller : MonoInstaller
     {
-        [SerializeField] private DataHolder dataHolder;
+        [SerializeField] private DataCollection _dataCollection;
 
         public override void InstallBindings()
         {
-            Container.Bind<DataHolder>().FromInstance(dataHolder).AsSingle().NonLazy();
+            Container.Bind<DataCollection>().FromScriptableObject(_dataCollection).AsSingle().NonLazy();
         }
     }
 }

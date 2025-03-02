@@ -2,16 +2,10 @@ namespace _project.Code.session.state.@base
 {
     public interface IStateObserver
     {
-        public virtual void OnStart()
-        {
-        }
+        public void OnStart();
 
-        public virtual void OnPause()
-        {
-        }
+        public void OnPause();
 
-        public virtual void OnEnd()
-        {
-        }
+        public void OnEnd();
     }
 }

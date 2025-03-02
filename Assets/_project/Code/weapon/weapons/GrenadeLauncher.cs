@@ -1,4 +1,5 @@
 using System.Collections;
+using _project.Code.tower;
 using _project.Code.weapon.data.weapon.configs;
 using _project.Code.weapon.projectiles;
 using _project.Code.weapon.projectiles.Base;
@@ -13,11 +14,11 @@ namespace _project.Code.weapon.weapons
         private bool _isIntake;
         private float _launchForce;
         
-        public GrenadeLauncher(WeaponContext weaponContext, GrenadeLauncherConfig weaponConfig) 
-            : base(weaponContext, weaponConfig)
+        public GrenadeLauncher(GrenadeLauncherConfig config, WeaponContext weaponContext, int index) 
+            : base(config, weaponContext, index)
         {
-            _grenadeLauncherConfig = weaponConfig;
-            _launchForce = weaponConfig.MinLaunchForce;
+            _grenadeLauncherConfig = config;
+            _launchForce = config.MinLaunchForce;
         }
 
         protected override void OnTriggerPull()

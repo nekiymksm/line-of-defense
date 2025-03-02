@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 983c8d03c7a045e6955324371e8b59fd, type: 3}
   m_Name: SessionConditionsConfig
   m_EditorClassIdentifier: 
-  <DefenseAreaHealth>k__BackingField: 1000
+  <DefenseAreaHealth>k__BackingField: 2147483647

@@ -1,4 +1,5 @@
 using System.Collections;
+using _project.Code.tower;
 using _project.Code.weapon.data.weapon.configs;
 using _project.Code.weapon.weapons.Base;
 using UnityEngine;
@@ -10,14 +11,14 @@ namespace _project.Code.weapon.weapons
         private MachineGunConfig _machineGunConfig;
         private bool _canDoShot;
         
-        public MachineGun(WeaponContext weaponContext, MachineGunConfig weaponConfig) 
-            : base(weaponContext, weaponConfig)
+        public MachineGun(MachineGunConfig config, WeaponContext weaponContext, int index) 
+            : base(config, weaponContext, index)
         {
-            _machineGunConfig = weaponConfig;
+            _machineGunConfig = config;
             _canDoShot = true;
         }
 
-        protected override void OnTriggerHold()
+        protected override void OnTriggerHold(Vector2 lookValue)
         {
             if (IsPulled && IsReload == false && _canDoShot)
             {
