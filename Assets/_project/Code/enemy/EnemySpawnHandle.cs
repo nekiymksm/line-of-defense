@@ -42,14 +42,12 @@ namespace _project.Code.enemy
             var topPoint = viewCamera.ScreenToWorldPoint(new Vector3(0, Screen.height, 0));
             topValue = topPoint.y + topPoint.z;
             
+            _enemies = new List<Enemy>();
             isSpawn = false;
         }
 
         public void OnStart()
         {
-            isSpawn = true;
-            _enemies = new List<Enemy>();
-            
             StartCoroutine(Spawn());
         }
 
@@ -72,6 +70,8 @@ namespace _project.Code.enemy
 
         private IEnumerator Spawn()
         {
+            isSpawn = true;
+            
             while (isSpawn)
             {
                 var enemyConfig = _enemiesCollection.Get();

@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac7544c406c34ad38d49a12a463d6e35, type: 3}
   m_Name: TurretViewsCollection
   m_EditorClassIdentifier: 
-  _turretConfigs:
-  - TurretViewKind: 0
-    TurretTowerPrefab: {fileID: 0}
+  _turretConfigs: []

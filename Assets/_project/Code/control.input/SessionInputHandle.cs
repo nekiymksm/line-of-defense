@@ -25,17 +25,14 @@ namespace _project.Code.control.input
         private void Construct(DataCollection dataCollection)
         {
             _inputHandleConfig = dataCollection.GetData<InputHandleConfig>();
-        }
-        
-        private void Start()
-        {
-            _lookAction = InputSystem.actions.FindAction(InputActionKind.TurretLook.ToString());
-            _aimAction = InputSystem.actions.FindAction(InputActionKind.TurretShot.ToString());
             
             _canInput = true;
             _inputDependables = new List<IInputDependable>();
+            
+            _lookAction = InputSystem.actions.FindAction(InputActionKind.TurretLook.ToString());
+            _aimAction = InputSystem.actions.FindAction(InputActionKind.TurretShot.ToString());
         }
-        
+
         private void Update()
         {
             _lookInputValue = _lookAction.ReadValue<Vector2>();

@@ -47,7 +47,7 @@ namespace _project.Code.enemy.enemies.@base
             
             if (_health <= 0)
             {
-                _onDefeatAction(_config.Points);
+                _onDefeatAction?.Invoke(_config.Points);
                 Die();
             }
         }
